@@ -8,11 +8,17 @@
 import java.util.ArrayList; 
 
 public class Sequence {
-  private ArrayList<Integer> values = new ArrayList<Integer>(); 
+  private ArrayList<Integer> values; 
   public Sequence() {
-    
+    this.values = new ArrayList<Integer>();
   }
   public int size() {
     return this.values.size();  
+  }
+  public String toString() {
+    return this.values + "";  
+  }
+  public void add(int n) {
+    this.values.add( n );  
   }
 }
