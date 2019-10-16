@@ -10,6 +10,12 @@ public class Sequence {
     for (int v : values)
       this.values.add(v); 
   }
+  public void add(Integer elem) {
+    this.values.add(elem);  
+  }
+  public Integer get(int index) {
+    return this.values.get(index);  
+  }
   public int size() {
     return this.values.size();  
   }
@@ -22,8 +28,26 @@ public class Sequence {
       return merge(a, b); 
     }
   }
+  // returns a sequence made of the longest sorted prefix
   public Sequence longest() {
-    return null;  
+    Sequence result = new Sequence(); 
+    if (this.size() == 0) {
+      
+    } else {
+      for (Integer elem : this.values) {
+        // System.out.println( " --> " + elem );  
+        if (result.size() == 0)  {
+          result.add(elem);  
+        } else {
+          if (result.get(result.size()-1) <= elem) {
+            result.add(elem);  
+          } else {
+            break;  
+          }
+        }
+      }
+    }
+    return result; 
   }
   public Sequence rest() {
     return null;  
