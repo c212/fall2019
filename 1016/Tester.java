@@ -4,6 +4,7 @@ public class Tester {
     Tester.basicSortCall(); 
     Tester.createSequence(); 
     Tester.checkLongest();
+    Tester.basicMerge(); 
   }
   public static void testEmptySequence() {
     Sequence a = new Sequence(); 
@@ -28,5 +29,11 @@ public class Tester {
     System.out.println( b.longest() ); // [1, 3]
     Sequence c = new Sequence(new int[] {1, 3, 3, 5, 2}); 
     System.out.println( c.longest() ); // [1, 3, 3, 5]
+  }
+  public static void basicMerge() {
+    Sequence a = new Sequence(new int[] {1, 3, 5, 7});  
+    Sequence b = new Sequence(new int[] {2, 2, 6});  
+    Sequence c = Sequence.merge(a, b); 
+    System.out.println( c ); // [1, 2, 2, 3, 6, 7]
   }
 }

@@ -52,8 +52,38 @@ public class Sequence {
   public Sequence rest() {
     return null;  
   }
-  public Sequence merge(Sequence p, Sequence r) {
-    return null;  
+  public static Sequence merge(Sequence p, Sequence r) {
+    // this code assumes p and r are sorted already (ascending) 
+    Sequence result = new Sequence(); 
+    if (p.size() == 0) {
+      return r; 
+    } else if (r.size() == 0) {
+      return p;  
+    } else {
+      int pIndex = 0, rIndex = 0; 
+      while ((pIndex < p.size()) || (rIndex < r.size())) { 
+        if (pIndex >= p.size()-1) {
+          Integer b = r.get(rIndex); 
+          result.add(b); 
+          rIndex += 1; 
+        } else if (rIndex >= r.size()-1) { 
+          Integer a = p.get(pIndex); 
+          result.add(a); 
+          pIndex += 1; 
+        } else {
+          Integer a = p.get(pIndex); 
+          Integer b = r.get(rIndex); 
+          if (a <= b) {
+            result.add(a); 
+            pIndex += 1; 
+          } else { 
+            result.add(b); 
+            rIndex += 1; 
+          }
+        }
+      }
+    }
+    return result; 
   }
   public String toString() {
     return this.values + ""; 
