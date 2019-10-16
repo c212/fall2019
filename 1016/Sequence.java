@@ -5,6 +5,11 @@ public class Sequence {
   public Sequence() {
     this.values = new ArrayList<Integer>();    
   }
+  public Sequence(int[] values) {
+    this(); 
+    for (int v : values)
+      this.values.add(v); 
+  }
   public int size() {
     return this.values.size();  
   }
