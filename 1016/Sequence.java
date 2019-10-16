@@ -8,4 +8,25 @@ public class Sequence {
   public int size() {
     return this.values.size();  
   }
+  public Sequence sort() {
+    if (this.size() == 0) {
+      return new Sequence();  
+    } else {
+      Sequence a = this.longest(); 
+      Sequence b = this.rest(); 
+      return merge(a, b); 
+    }
+  }
+  public Sequence longest() {
+    return null;  
+  }
+  public Sequence rest() {
+    return null;  
+  }
+  public Sequence merge(Sequence p, Sequence r) {
+    return null;  
+  }
+  public String toString() {
+    return this.values + ""; 
+  }
 }
